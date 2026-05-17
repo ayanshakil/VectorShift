@@ -1,6 +1,6 @@
-# VectorShift Frontend Technical Assessment
+# Run Pipeline
 
-A node-based pipeline editor built with React and FastAPI, featuring a drag-and-drop interface for creating and analyzing data pipelines.
+A node-based pipeline editor built with React and FastAPI. It provides a drag-and-drop canvas for creating and analyzing data pipelines.
 
 ![Pipeline Builder](https://img.shields.io/badge/Status-Complete-success)
 ![React](https://img.shields.io/badge/React-18.2-blue)
@@ -51,7 +51,7 @@ A node-based pipeline editor built with React and FastAPI, featuring a drag-and-
 #### 1. Backend Setup
 ```bash
 cd backend
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 ```
 
 #### 2. Frontend Setup
@@ -115,7 +115,7 @@ When you click "Run Pipeline", the backend will:
 
 ### Project Structure
 ```
-VectorShift/
+Run_Pipeline/
 ├── backend/
 │   ├── main.py              # FastAPI application
 │   └── requirements.txt     # Python dependencies
@@ -123,22 +123,22 @@ VectorShift/
 ├── frontend/
 │   ├── src/
 │   │   ├── nodes/
-│   │   │   ├── BaseNode.js      # Generic node component
-│   │   │   ├── inputNode.js     # Input node
-│   │   │   ├── outputNode.js    # Output node
-│   │   │   ├── llmNode.js       # LLM node
-│   │   │   ├── textNode.js      # Advanced text node
-│   │   │   ├── transformerNode.js
-│   │   │   ├── filterNode.js
-│   │   │   ├── aggregatorNode.js
-│   │   │   ├── validatorNode.js
-│   │   │   └── apiNode.js
+│   │   │   ├── BaseNode.jsx     # Generic node component
+│   │   │   ├── inputNode.jsx    # Input node
+│   │   │   ├── outputNode.jsx   # Output node
+│   │   │   ├── llmNode.jsx      # LLM node
+│   │   │   ├── textNode.jsx     # Advanced text node
+│   │   │   ├── transformerNode.jsx
+│   │   │   ├── filterNode.jsx
+│   │   │   ├── aggregatorNode.jsx
+│   │   │   ├── validatorNode.jsx
+│   │   │   └── apiNode.jsx
 │   │   ├── theme.js         # Design system
-│   │   ├── ui.js            # ReactFlow canvas
-│   │   ├── toolbar.js       # Node toolbar
-│   │   ├── submit.js        # Submit button + API
-│   │   ├── App.js           # Main app
-│   │   ├── store.js         # Zustand store
+│   │   ├── ui.jsx           # ReactFlow canvas
+│   │   ├── toolbar.jsx      # Node toolbar
+│   │   ├── submit.jsx       # Submit button + API
+│   │   ├── App.jsx          # Main app
+│   │   ├── store.jsx        # Zustand store
 │   │   └── index.css        # Global styles
 │   └── package.json
 │

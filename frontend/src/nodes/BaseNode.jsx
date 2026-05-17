@@ -106,18 +106,30 @@ export const BaseNode = ({ id, data, config }) => {
                     )}
                     {field.type === 'textarea' && (
                         <textarea
-                            defaultValue={field.defaultValue}
+                            ref={field.inputRef}
+                            {...(field.value !== undefined
+                                ? { value: field.value }
+                                : { defaultValue: field.defaultValue })}
                             onChange={(e) => field.onChange && field.onChange(e, id)}
+                            onInput={field.autoResize ? (e) => {
+                                e.target.style.height = 'auto';
+                                e.target.style.height = `${e.target.scrollHeight}px`;
+                            } : undefined}
                             style={{
                                 width: '100%',
                                 boxSizing: 'border-box',
-                                minHeight: '60px',
+                                minHeight: field.minHeight || '60px',
                                 padding: '6px 10px',
                                 borderRadius: theme.borderRadius.sm,
                                 border: `1px solid ${theme.colors.border}`,
-                                fontSize: theme.typography.fontSize.base, // Increased from sm
-                                fontFamily: 'monospace'
+                                fontSize: theme.typography.fontSize.base,
+                                fontFamily: 'monospace',
+                                resize: field.autoResize ? 'none' : 'vertical',
+                                overflow: field.autoResize ? 'hidden' : 'auto',
+                                outline: 'none',
                             }}
+                            onFocus={(e) => e.target.style.borderColor = theme.colors.primary}
+                            onBlur={(e) => e.target.style.borderColor = theme.colors.border}
                         />
                     )}
                 </div>
